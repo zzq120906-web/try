@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>导弹数据库 - CN ARMORY</title>
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Microsoft YaHei",sans-serif;
+}
+
+
+body{
+
+background:#030712;
+color:white;
+overflow-x:hidden;
+
+}
+
+
+/*背景光*/
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+width:600px;
+height:600px;
+
+background:#0066ff;
+
+filter:blur(180px);
+
+opacity:.18;
+
+top:-200px;
+left:50%;
+
+transform:translateX(-50%);
+
+z-index:-1;
+
+}
+
+
+/*导航*/
+
+header{
+
+height:80px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:0 8%;
+
+background:#07101f;
+
+border-bottom:1px solid #203452;
+
+}
+
+
+
+.logo{
+
+font-size:30px;
+
+font-weight:bold;
+
+color:#00d9ff;
+
+}
+
+
+
+header a{
+
+color:#aaa;
+
+text-decoration:none;
+
+}
+
+
+
+/*主体*/
+
+.container{
+
+padding:60px 8%;
+
+}
+
+
+
+.title{
+
+font-size:50px;
+
+color:#00d9ff;
+
+}
+
+
+
+.subtitle{
+
+margin-top:20px;
+
+color:#999;
+
+font-size:18px;
+
+}
+
+
+
+/*搜索*/
+
+.search{
+
+margin:40px 0;
+
+}
+
+
+
+.search input{
+
+width:100%;
+
+max-width:500px;
+
+padding:15px 20px;
+
+background:#101b33;
+
+border:1px solid #203452;
+
+border-radius:30px;
+
+color:white;
+
+font-size:16px;
+
+}
+
+
+
+/*分类*/
+
+.grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(260px,1fr));
+
+gap:30px;
+
+margin-top:40px;
+
+}
+
+
+
+.card{
+
+background:
+linear-gradient(
+145deg,
+#101b33,
+#060b18
+);
+
+padding:35px;
+
+border-radius:20px;
+
+border:1px solid #203452;
+
+transition:.3s;
+
+text-decoration:none;
+
+color:white;
+
+}
+
+
+
+.card:hover{
+
+transform:translateY(-10px);
+
+border-color:#00d9ff;
+
+box-shadow:
+0 0 30px #00d9ff55;
+
+}
+
+
+
+.card h2{
+
+color:#00d9ff;
+
+margin-bottom:15px;
+
+}
+
+
+
+.card p{
+
+color:#aaa;
+
+line-height:1.7;
+
+}
+
+
+
+.tag{
+
+display:inline-block;
+
+margin-top:20px;
+
+padding:6px 15px;
+
+background:#00d9ff22;
+
+border-radius:20px;
+
+color:#00d9ff;
+
+}
+
+
+/*热门装备*/
+
+.section{
+
+margin-top:70px;
+
+}
+
+
+.list{
+
+background:#101b33;
+
+padding:25px;
+
+border-radius:20px;
+
+border:1px solid #203452;
+
+margin-top:25px;
+
+}
+
+
+
+.item{
+
+padding:15px;
+
+border-bottom:1px solid #203452;
+
+}
+
+
+
+.item:last-child{
+
+border:none;
+
+}
+
+
+
+.name{
+
+color:#00d9ff;
+
+font-size:20px;
+
+}
+
+
+
+.info{
+
+color:#aaa;
+
+margin-top:5px;
+
+}
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+<header>
+
+<div class="logo">
+CN ARMORY
+</div>
+
+
+<a href="equipment.html">
+返回装备库
+</a>
+
+
+</header>
+
+
+
+
+<div class="container">
+
+
+<div class="title">
+🚀 导弹数据库
+</div>
+
+
+<div class="subtitle">
+探索中国导弹体系 · 技术发展 · 装备分类
+</div>
+
+
+
+
+<div class="search">
+
+<input placeholder="搜索导弹名称...">
+
+</div>
+
+
+
+
+<div class="grid">
+
+
+<a class="card">
+
+<h2>
+🛰 弹道导弹
+</h2>
+
+<p>
+覆盖近程、中程、远程及战略导弹体系。</p>
+
+<div class="tag">
+战略打击
+</div>
+
+</a>
+
+
+
+
+<a class="card">
+
+<h2>
+⚓ 反舰导弹
+</h2>
+
+<p>
+用于海上目标打击的导弹体系。</p>
+
+<div class="tag">
+海上作战
+</div>
+
+</a>
+
+
+
+
+<a class="card">
+
+<h2>
+🛩 巡航导弹
+</h2>
+
+<p>
+远程精确打击与复杂环境作战。</p>
+
+<div class="tag">
+精确打击
+</div>
+
+</a>
+
+
+
+
+<a class="card">
+
+<h2>
+🔥 高超音速
+</h2>
+
+<p>
+高速飞行与先进气动技术方向。</p>
+
+<div class="tag">
+未来技术
+</div>
+
+</a>
+
+
+
+</div>
+
+
+
+
+
+<div class="section">
+
+
+<h1>
+热门装备
+</h1>
+
+
+<div class="list">
+
+
+<div class="item">
+
+<div class="name">
+东风系列
+</div>
+
+<div class="info">
+中国弹道导弹体系代表
+</div>
+
+</div>
+
+
+
+
+<div class="item">
+
+<div class="name">
+鹰击系列
+</div>
+
+<div class="info">
+反舰导弹体系
+</div>
+
+</div>
+
+
+
+
+<div class="item">
+
+<div class="name">
+长剑系列
+</div>
+
+<div class="info">
+巡航导弹体系
+</div>
+
+</div>
+
+
+
+
+<div class="item">
+
+<div class="name">
+红旗系列
+</div>
+
+<div class="info">
+防空导弹体系
+</div>
+
+</div>
+
+
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</body>
+
+</html>
