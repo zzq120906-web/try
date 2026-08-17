@@ -17,10 +17,9 @@ box-sizing:border-box;
 font-family:"Microsoft YaHei",Arial,sans-serif;
 }
 
-
 body{
 
-background:#080c09;
+background:#080b0f;
 color:white;
 overflow-x:hidden;
 
@@ -32,36 +31,33 @@ overflow-x:hidden;
 .bg{
 
 position:fixed;
-
 inset:0;
 
 z-index:-5;
 
 background:
 linear-gradient(
-rgba(0,0,0,.65),
-rgba(0,0,0,.85)
+rgba(0,0,0,.55),
+rgba(0,0,0,.8)
 ),
 url("images/background.jpg");
 
 background-size:cover;
-
 background-position:center;
 
-animation:bgMove 25s infinite alternate;
+animation:bgmove 25s infinite alternate;
 
 }
 
 
-
-@keyframes bgMove{
+@keyframes bgmove{
 
 from{
 transform:scale(1);
 }
 
 to{
-transform:scale(1.1);
+transform:scale(1.08);
 }
 
 }
@@ -73,7 +69,6 @@ transform:scale(1.1);
 .grid{
 
 position:fixed;
-
 inset:0;
 
 z-index:-3;
@@ -81,25 +76,24 @@ z-index:-3;
 background-image:
 
 linear-gradient(
-rgba(180,180,180,.08) 1px,
+rgba(0,160,255,.08) 1px,
 transparent 1px
 ),
 
 linear-gradient(
 90deg,
-rgba(180,180,180,.08) 1px,
+rgba(0,160,255,.08) 1px,
 transparent 1px
 );
 
 background-size:60px 60px;
 
-animation:gridMove 15s linear infinite;
+animation:gridmove 15s linear infinite;
 
 }
 
 
-
-@keyframes gridMove{
+@keyframes gridmove{
 
 from{
 background-position:0 0;
@@ -124,17 +118,16 @@ width:100%;
 
 height:2px;
 
-background:#c8b96b;
+background:#00bfff;
 
-opacity:.3;
+opacity:.35;
 
-animation:scan 6s infinite;
+animation:scanmove 5s infinite;
 
 }
 
 
-
-@keyframes scan{
+@keyframes scanmove{
 
 0%{
 top:0;
@@ -149,7 +142,8 @@ top:100%;
 
 
 
-/* 顶部 */
+/* 顶部导航 */
+
 
 header{
 
@@ -157,18 +151,17 @@ height:85px;
 
 display:flex;
 
-align-items:center;
-
 justify-content:space-between;
+
+align-items:center;
 
 padding:0 8%;
 
-background:#0c110dcc;
+background:#090d12cc;
 
-border-bottom:1px solid #555;
+border-bottom:1px solid #26384d;
 
 }
-
 
 
 .logo{
@@ -179,10 +172,9 @@ font-weight:bold;
 
 letter-spacing:3px;
 
-color:#d6c98a;
+color:#d9c37a;
 
 }
-
 
 
 .status{
@@ -194,16 +186,18 @@ color:#aaa;
 }
 
 
-
 .status span{
 
-color:#8cff8c;
+color:#4cff7a;
 
 }
 
 
 
-/* 主区域 */
+
+
+/* 主标题区域 */
+
 
 .hero{
 
@@ -223,17 +217,19 @@ text-align:center;
 
 .hero h1{
 
-font-size:70px;
+font-size:68px;
 
 letter-spacing:10px;
 
-animation:titleShow 2s;
+color:white;
+
+animation:show 1.8s;
 
 }
 
 
 
-@keyframes titleShow{
+@keyframes show{
 
 from{
 
@@ -253,17 +249,20 @@ opacity:1;
 
 
 
-
 .hero p{
-
-margin:30px;
 
 font-size:22px;
 
 color:#ccc;
 
+margin:30px;
+
 }
 
+
+
+
+/* 按钮 */
 
 
 .btn{
@@ -272,13 +271,13 @@ display:inline-block;
 
 padding:18px 60px;
 
-background:#596b45;
+background:#526b45;
 
 border-radius:8px;
 
-text-decoration:none;
-
 color:white;
+
+text-decoration:none;
 
 transition:.4s;
 
@@ -288,12 +287,12 @@ transition:.4s;
 
 .btn:hover{
 
-background:#82995f;
+background:#718f5a;
 
-transform:scale(1.08);
+transform:translateY(-6px);
 
 }
-/* 雷达 */
+ /* 雷达 */
 
 .radar{
 
@@ -301,7 +300,7 @@ position:absolute;
 
 right:8%;
 
-top:180px;
+top:170px;
 
 width:260px;
 
@@ -309,7 +308,9 @@ height:260px;
 
 border-radius:50%;
 
-border:1px solid #d6c98a55;
+border:1px solid #00bfff66;
+
+overflow:hidden;
 
 }
 
@@ -324,22 +325,21 @@ width:100%;
 
 height:100%;
 
-border-radius:50%;
-
 background:
 
 conic-gradient(
 transparent,
-#d6c98a55,
+#00bfff55,
 transparent
 );
 
-animation:radar 4s linear infinite;
+animation:rotate 4s linear infinite;
 
 }
 
 
-@keyframes radar{
+
+@keyframes rotate{
 
 from{
 
@@ -357,6 +357,30 @@ transform:rotate(360deg);
 
 
 
+.radar::after{
+
+content:"";
+
+position:absolute;
+
+left:50%;
+
+top:50%;
+
+width:10px;
+
+height:10px;
+
+background:#00bfff;
+
+border-radius:50%;
+
+transform:translate(-50%,-50%);
+
+}
+
+
+
 .radar span{
 
 position:absolute;
@@ -367,11 +391,12 @@ top:50%;
 
 transform:translate(-50%,-50%);
 
-font-size:13px;
+color:#00bfff;
 
-color:#d6c98a;
+font-size:14px;
 
 }
+
 
 
 
@@ -385,15 +410,15 @@ position:absolute;
 
 left:8%;
 
-top:200px;
+top:170px;
 
-background:#101510cc;
+width:270px;
 
-border:1px solid #596b45;
+background:#101820dd;
+
+border:1px solid #304a63;
 
 padding:25px;
-
-width:260px;
 
 border-radius:12px;
 
@@ -403,7 +428,7 @@ border-radius:12px;
 
 .panel h3{
 
-color:#d6c98a;
+color:#00bfff;
 
 margin-bottom:15px;
 
@@ -415,9 +440,9 @@ margin-bottom:15px;
 
 margin:12px 0;
 
-font-size:14px;
+color:#ccc;
 
-color:#bbb;
+font-size:14px;
 
 }
 
@@ -433,14 +458,13 @@ height:8px;
 
 border-radius:50%;
 
-background:#7cff7c;
+background:#45ff75;
 
 margin-right:8px;
 
 animation:blink 1.5s infinite;
 
 }
-
 
 
 @keyframes blink{
@@ -452,6 +476,7 @@ opacity:.3;
 }
 
 }
+
 
 
 
@@ -477,9 +502,9 @@ padding:40px 8%;
 
 .stat{
 
-background:#101510dd;
+background:#101820dd;
 
-border:1px solid #596b45;
+border:1px solid #304a63;
 
 border-radius:15px;
 
@@ -493,9 +518,98 @@ text-align:center;
 
 .number{
 
-font-size:38px;
+font-size:42px;
 
-color:#d6c98a;
+color:#00bfff;
+
+font-weight:bold;
+
+}
+
+
+
+.stat p{
+
+margin-top:10px;
+
+font-size:18px;
+
+}
+
+
+
+.stat small{
+
+display:block;
+
+margin-top:8px;
+
+color:#aaa;
+
+}
+
+
+
+
+
+/* 最新装备 */
+
+
+.showcase{
+
+margin:40px 8%;
+
+padding:40px;
+
+min-height:230px;
+
+border-radius:15px;
+
+border:1px solid #304a63;
+
+background:
+
+linear-gradient(
+90deg,
+#101820dd,
+#10182066
+),
+
+url("images/equipment.jpg");
+
+background-size:cover;
+
+background-position:center;
+
+}
+
+
+
+.showcase h2{
+
+color:#d9c37a;
+
+font-size:35px;
+
+margin-bottom:25px;
+
+}
+
+
+
+.item{
+
+margin:12px 0;
+
+color:#ddd;
+
+}
+
+
+
+.item span{
+
+color:#00bfff;
 
 font-weight:bold;
 
@@ -504,7 +618,8 @@ font-weight:bold;
 
 
 
-/* 装备入口 */
+
+/* 分类卡片 */
 
 
 .cards{
@@ -512,6 +627,7 @@ font-weight:bold;
 display:grid;
 
 grid-template-columns:
+
 repeat(auto-fit,minmax(240px,1fr));
 
 gap:25px;
@@ -524,13 +640,13 @@ padding:50px 8%;
 
 .card{
 
-background:#101510ee;
+background:#101820dd;
 
-border:1px solid #596b45;
-
-border-radius:15px;
+border:1px solid #304a63;
 
 padding:35px;
+
+border-radius:15px;
 
 transition:.4s;
 
@@ -542,7 +658,7 @@ transition:.4s;
 
 transform:translateY(-12px);
 
-border-color:#d6c98a;
+border-color:#00bfff;
 
 box-shadow:
 0 10px 30px #000;
@@ -553,7 +669,7 @@ box-shadow:
 
 .card h2{
 
-color:#d6c98a;
+color:#d9c37a;
 
 margin-bottom:15px;
 
@@ -563,58 +679,11 @@ margin-bottom:15px;
 
 .card p{
 
-color:#aaa;
+color:#bbb;
+
+line-height:1.6;
 
 }
-
-
-
-
-/* 图片展示预留 */
-
-
-.showcase{
-
-margin:40px 8%;
-
-height:220px;
-
-border-radius:15px;
-
-border:1px solid #596b45;
-
-background:
-
-linear-gradient(
-90deg,
-#101510,
-transparent
-),
-
-url("images/equipment.jpg");
-
-background-size:cover;
-
-background-position:center;
-
-display:flex;
-
-align-items:center;
-
-padding:40px;
-
-}
-
-
-
-.showcase h2{
-
-font-size:35px;
-
-}
-
-
-
 </style>
 
 </head>
@@ -633,18 +702,14 @@ font-size:35px;
 
 <header>
 
-
 <div class="logo">
 CN ARMORY
 </div>
 
 
 <div class="status">
-
 ● SYSTEM <span>ONLINE</span>
-
 </div>
-
 
 </header>
 
@@ -652,8 +717,9 @@ CN ARMORY
 
 
 
-<div class="panel">
+<!-- 数据状态面板 -->
 
+<div class="panel">
 
 <h3>
 DATABASE STATUS
@@ -661,26 +727,19 @@ DATABASE STATUS
 
 
 <div class="line">
-
 <span class="light"></span>
-数据库运行正常
-
+系统运行正常
 </div>
 
 
 <div class="line">
+数据库版本：CN-A01
+</div>
 
-分类:
+
+<div class="line">
+分类：
 航空 / 海军 / 导弹 / 航天
-
-</div>
-
-
-<div class="line">
-
-版本:
-CN-A01
-
 </div>
 
 
@@ -689,6 +748,8 @@ CN-A01
 
 
 
+
+<!-- 雷达 -->
 
 <div class="radar">
 
@@ -697,6 +758,7 @@ RADAR
 </span>
 
 </div>
+
 
 
 
@@ -714,14 +776,12 @@ RADAR
 
 
 <p>
-航空 · 海军 · 导弹 · 航天装备体系
+探索航空 · 海军 · 导弹 · 航天装备体系
 </p>
 
 
 <a href="equipment.html" class="btn">
-
 进入装备库
-
 </a>
 
 
@@ -729,6 +789,8 @@ RADAR
 
 
 </section>
+
+
 
 
 
@@ -747,7 +809,14 @@ RADAR
 装备领域
 </p>
 
+<small>
+航空 · 海军 · 导弹 · 航天
+</small>
+
 </div>
+
+
+
 
 
 <div class="stat">
@@ -760,7 +829,13 @@ RADAR
 收录装备
 </p>
 
+<small>
+持续更新数据库
+</small>
+
 </div>
+
+
 
 
 
@@ -774,6 +849,10 @@ RADAR
 发展年代
 </p>
 
+<small>
+1950年至今
+</small>
+
 </div>
 
 
@@ -781,8 +860,183 @@ RADAR
 
 
 
+
+
+
+
+
 <section class="showcase">
 
 
 <h2>
-最新  
+最新装备档案
+</h2>
+
+
+<div class="item">
+
+<span>
+歼-20：
+</span>
+
+第五代隐身战斗机
+
+</div>
+
+
+
+<div class="item">
+
+<span>
+福建舰：
+</span>
+
+新一代航空母舰
+
+</div>
+
+
+
+
+<div class="item">
+
+<span>
+东风系列：
+</span>
+
+战略导弹装备体系
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section class="cards">
+
+
+<div class="card">
+
+<h2>
+✈ 航空装备
+</h2>
+
+<p>
+战斗机、轰炸机、无人机等航空装备数据库。
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h2>
+🚢 海军装备
+</h2>
+
+<p>
+航母、驱逐舰、潜艇等海上装备体系。
+</p>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h2>
+🚀 导弹系统
+</h2>
+
+<p>
+弹道、巡航、反舰、高超音速导弹数据库。
+</p>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h2>
+🛰 航天装备
+</h2>
+
+<p>
+火箭、卫星与空间技术资料库。
+</p>
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+<script>
+
+
+function count(id,target){
+
+
+let num=0;
+
+
+let timer=setInterval(()=>{
+
+
+num++;
+
+
+document.getElementById(id).innerHTML=num;
+
+
+
+if(num>=target){
+
+clearInterval(timer);
+
+}
+
+
+},40);
+
+
+}
+
+
+
+count("a",4);
+
+count("b",120);
+
+count("c",70);
+
+
+
+</script>
+
+
+
+</body>
+
+</html>  
