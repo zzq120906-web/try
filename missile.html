@@ -23,49 +23,18 @@ body{
 
 background:#030712;
 color:white;
-overflow-x:hidden;
 
 }
 
 
-/*背景光*/
-
-body::before{
-
-content:"";
-
-position:fixed;
-
-width:600px;
-height:600px;
-
-background:#0066ff;
-
-filter:blur(180px);
-
-opacity:.18;
-
-top:-200px;
-left:50%;
-
-transform:translateX(-50%);
-
-z-index:-1;
-
-}
-
-
-/*导航*/
 
 header{
 
 height:80px;
 
 display:flex;
-
-justify-content:space-between;
-
 align-items:center;
+justify-content:space-between;
 
 padding:0 8%;
 
@@ -76,30 +45,23 @@ border-bottom:1px solid #203452;
 }
 
 
-
 .logo{
 
 font-size:30px;
-
 font-weight:bold;
-
 color:#00d9ff;
 
 }
 
 
-
 header a{
 
 color:#aaa;
-
 text-decoration:none;
 
 }
 
 
-
-/*主体*/
 
 .container{
 
@@ -112,26 +74,19 @@ padding:60px 8%;
 .title{
 
 font-size:50px;
-
 color:#00d9ff;
 
 }
 
 
-
 .subtitle{
 
-margin-top:20px;
-
-color:#999;
-
-font-size:18px;
+margin-top:15px;
+color:#aaa;
 
 }
 
 
-
-/*搜索*/
 
 .search{
 
@@ -144,16 +99,15 @@ margin:40px 0;
 .search input{
 
 width:100%;
-
 max-width:500px;
 
 padding:15px 20px;
 
-background:#101b33;
+border-radius:30px;
 
 border:1px solid #203452;
 
-border-radius:30px;
+background:#101b33;
 
 color:white;
 
@@ -162,8 +116,6 @@ font-size:16px;
 }
 
 
-
-/*分类*/
 
 .grid{
 
@@ -174,13 +126,17 @@ repeat(auto-fit,minmax(260px,1fr));
 
 gap:30px;
 
-margin-top:40px;
-
 }
 
 
 
 .card{
+
+display:block;
+
+text-decoration:none;
+
+color:white;
 
 background:
 linear-gradient(
@@ -196,10 +152,6 @@ border-radius:20px;
 border:1px solid #203452;
 
 transition:.3s;
-
-text-decoration:none;
-
-color:white;
 
 }
 
@@ -227,7 +179,6 @@ margin-bottom:15px;
 }
 
 
-
 .card p{
 
 color:#aaa;
@@ -235,7 +186,6 @@ color:#aaa;
 line-height:1.7;
 
 }
-
 
 
 .tag{
@@ -246,53 +196,34 @@ margin-top:20px;
 
 padding:6px 15px;
 
-background:#00d9ff22;
-
 border-radius:20px;
+
+background:#00d9ff22;
 
 color:#00d9ff;
 
 }
 
 
-/*热门装备*/
-
-.section{
-
-margin-top:70px;
-
-}
-
 
 .list{
 
-background:#101b33;
-
-padding:25px;
-
-border-radius:20px;
-
-border:1px solid #203452;
-
-margin-top:25px;
+margin-top:60px;
 
 }
-
 
 
 .item{
 
-padding:15px;
+background:#101b33;
 
-border-bottom:1px solid #203452;
+padding:20px;
 
-}
+margin-top:15px;
 
+border-radius:15px;
 
-
-.item:last-child{
-
-border:none;
+border:1px solid #203452;
 
 }
 
@@ -302,7 +233,7 @@ border:none;
 
 color:#00d9ff;
 
-font-size:20px;
+font-size:22px;
 
 }
 
@@ -312,12 +243,13 @@ font-size:20px;
 
 color:#aaa;
 
-margin-top:5px;
+margin-top:8px;
 
 }
 
 
 </style>
+
 
 </head>
 
@@ -326,7 +258,9 @@ margin-top:5px;
 <body>
 
 
+
 <header>
+
 
 <div class="logo">
 CN ARMORY
@@ -346,23 +280,26 @@ CN ARMORY
 <div class="container">
 
 
-<div class="title">
+<h1 class="title">
 🚀 导弹数据库
-</div>
+</h1>
 
 
-<div class="subtitle">
-探索中国导弹体系 · 技术发展 · 装备分类
-</div>
-
+<p class="subtitle">
+探索中国导弹体系 · 型号发展 · 技术方向
+</p>
 
 
 
 <div class="search">
 
-<input placeholder="搜索导弹名称...">
+<input 
+id="search"
+placeholder="搜索导弹名称..."
+onkeyup="searchMissile()">
 
 </div>
+
 
 
 
@@ -370,17 +307,19 @@ CN ARMORY
 <div class="grid">
 
 
-<a class="card">
+
+<a href="ballistic.html" class="card">
 
 <h2>
 🛰 弹道导弹
 </h2>
 
 <p>
-覆盖近程、中程、远程及战略导弹体系。</p>
+战略打击体系，包括近程、中程、远程弹道导弹。
+</p>
 
 <div class="tag">
-战略打击
+战略力量
 </div>
 
 </a>
@@ -388,14 +327,15 @@ CN ARMORY
 
 
 
-<a class="card">
+<a href="anti_ship.html" class="card">
 
 <h2>
 ⚓ 反舰导弹
 </h2>
 
 <p>
-用于海上目标打击的导弹体系。</p>
+用于海上目标打击的导弹体系。
+</p>
 
 <div class="tag">
 海上作战
@@ -406,14 +346,16 @@ CN ARMORY
 
 
 
-<a class="card">
+
+<a href="cruise.html" class="card">
 
 <h2>
 🛩 巡航导弹
 </h2>
 
 <p>
-远程精确打击与复杂环境作战。</p>
+远程精确打击与复杂环境作战。
+</p>
 
 <div class="tag">
 精确打击
@@ -424,14 +366,16 @@ CN ARMORY
 
 
 
-<a class="card">
+
+<a href="hypersonic.html" class="card">
 
 <h2>
 🔥 高超音速
 </h2>
 
 <p>
-高速飞行与先进气动技术方向。</p>
+高速飞行与先进气动技术方向。
+</p>
 
 <div class="tag">
 未来技术
@@ -447,7 +391,8 @@ CN ARMORY
 
 
 
-<div class="section">
+
+<div class="list">
 
 
 <h1>
@@ -455,10 +400,8 @@ CN ARMORY
 </h1>
 
 
-<div class="list">
 
-
-<div class="item">
+<div class="item missile">
 
 <div class="name">
 东风系列
@@ -472,23 +415,21 @@ CN ARMORY
 
 
 
-
-<div class="item">
+<div class="item missile">
 
 <div class="name">
 鹰击系列
 </div>
 
 <div class="info">
-反舰导弹体系
+反舰导弹体系代表
 </div>
 
 </div>
 
 
 
-
-<div class="item">
+<div class="item missile">
 
 <div class="name">
 长剑系列
@@ -502,8 +443,7 @@ CN ARMORY
 
 
 
-
-<div class="item">
+<div class="item missile">
 
 <div class="name">
 红旗系列
@@ -517,14 +457,66 @@ CN ARMORY
 
 
 
+</div>
+
+
 
 </div>
 
 
-</div>
 
 
-</div>
+
+
+<script>
+
+
+function searchMissile(){
+
+
+let input=
+document.getElementById("search")
+.value
+.toLowerCase();
+
+
+
+let items=
+document.getElementsByClassName("missile");
+
+
+
+for(let i=0;i<items.length;i++){
+
+
+let text=
+items[i].innerText
+.toLowerCase();
+
+
+
+if(text.includes(input)){
+
+items[i].style.display="block";
+
+}
+
+else{
+
+items[i].style.display="none";
+
+}
+
+
+}
+
+
+}
+
+
+</script>
+
+
 
 
 </body>
