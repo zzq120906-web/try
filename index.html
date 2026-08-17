@@ -4,113 +4,197 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>CN ARMORY 中国武器数据库</title>
 
+
 <style>
 
+
 *{
+
 margin:0;
+
 padding:0;
+
 box-sizing:border-box;
+
 font-family:"Microsoft YaHei",Arial,sans-serif;
+
 }
+
+
 
 body{
 
-background:#080b0f;
+background:#070b10;
+
 color:white;
+
 overflow-x:hidden;
 
 }
 
 
-/* 背景 */
+
+/* 动态背景 */
 
 .bg{
 
 position:fixed;
+
 inset:0;
 
 z-index:-5;
 
+
 background:
+
 linear-gradient(
 rgba(0,0,0,.55),
-rgba(0,0,0,.8)
+rgba(0,0,0,.85)
 ),
+
 url("images/background.jpg");
 
+
 background-size:cover;
+
 background-position:center;
 
-animation:bgmove 25s infinite alternate;
+
+animation:bgMove 25s infinite alternate;
 
 }
 
 
-@keyframes bgmove{
+
+
+@keyframes bgMove{
+
 
 from{
+
 transform:scale(1);
+
 }
+
 
 to{
-transform:scale(1.08);
-}
+
+transform:scale(1.1);
 
 }
 
 
+}
 
-/* 经纬网格 */
 
-.grid{
+
+
+/* 地图和网格背景 */
+
+
+.map{
 
 position:fixed;
-inset:0;
+
+right:-100px;
+
+top:150px;
+
+width:600px;
+
+height:600px;
+
+opacity:.08;
 
 z-index:-3;
 
+
+background:
+
+url("images/china-map.png");
+
+
+background-size:contain;
+
+background-repeat:no-repeat;
+
+
+}
+
+
+
+
+.grid{
+
+
+position:fixed;
+
+inset:0;
+
+z-index:-2;
+
+
 background-image:
 
+
 linear-gradient(
-rgba(0,160,255,.08) 1px,
+rgba(0,180,255,.08) 1px,
 transparent 1px
 ),
 
+
 linear-gradient(
 90deg,
-rgba(0,160,255,.08) 1px,
+rgba(0,180,255,.08) 1px,
 transparent 1px
 );
 
+
+
 background-size:60px 60px;
 
-animation:gridmove 15s linear infinite;
+
+animation:gridMove 15s linear infinite;
+
 
 }
 
 
-@keyframes gridmove{
+
+
+@keyframes gridMove{
+
 
 from{
+
 background-position:0 0;
+
 }
+
 
 to{
+
 background-position:60px 60px;
-}
 
 }
+
+
+}
+
 
 
 
 
 /* 扫描线 */
 
+
 .scan{
+
 
 position:fixed;
 
@@ -118,77 +202,111 @@ width:100%;
 
 height:2px;
 
-background:#00bfff;
+background:#00c8ff;
+
 
 opacity:.35;
 
-animation:scanmove 5s infinite;
+
+animation:scanMove 6s infinite;
+
 
 }
 
 
-@keyframes scanmove{
+
+@keyframes scanMove{
+
 
 0%{
+
 top:0;
+
 }
+
 
 100%{
+
 top:100%;
-}
 
 }
 
 
+}
 
 
-/* 顶部导航 */
+
+
+
+
+/* 顶部 */
 
 
 header{
 
+
 height:85px;
+
 
 display:flex;
 
-justify-content:space-between;
 
 align-items:center;
 
+
+justify-content:space-between;
+
+
 padding:0 8%;
 
-background:#090d12cc;
 
-border-bottom:1px solid #26384d;
+background:#090e14dd;
+
+
+border-bottom:1px solid #29435c;
+
 
 }
+
 
 
 .logo{
 
+
 font-size:32px;
+
 
 font-weight:bold;
 
+
 letter-spacing:3px;
 
-color:#d9c37a;
+
+color:#dfc56b;
+
 
 }
+
 
 
 .status{
 
-font-size:14px;
 
 color:#aaa;
 
+
+font-size:14px;
+
+
 }
+
 
 
 .status span{
 
-color:#4cff7a;
+
+color:#43ff70;
+
 
 }
 
@@ -196,54 +314,76 @@ color:#4cff7a;
 
 
 
-/* 主标题区域 */
+
+/* 主标题 */
 
 
 .hero{
 
+
 height:70vh;
+
 
 display:flex;
 
+
 justify-content:center;
+
 
 align-items:center;
 
+
 text-align:center;
 
+
+padding:20px;
+
+
 }
+
 
 
 
 .hero h1{
 
-font-size:68px;
+
+font-size:70px;
+
 
 letter-spacing:10px;
 
-color:white;
 
-animation:show 1.8s;
+animation:titleIn 2s;
+
 
 }
 
 
 
-@keyframes show{
+
+@keyframes titleIn{
+
 
 from{
 
+
 opacity:0;
+
 
 transform:translateY(40px);
 
+
 }
+
 
 to{
 
+
 opacity:1;
 
+
 }
+
 
 }
 
@@ -251,35 +391,45 @@ opacity:1;
 
 .hero p{
 
+
 font-size:22px;
+
 
 color:#ccc;
 
-margin:30px;
+
+margin:30px 0;
+
 
 }
 
 
 
 
-/* 按钮 */
 
 
 .btn{
 
+
 display:inline-block;
+
 
 padding:18px 60px;
 
-background:#526b45;
+
+background:#536c45;
+
 
 border-radius:8px;
 
+
 color:white;
+
 
 text-decoration:none;
 
 transition:.4s;
+
 
 }
 
@@ -287,9 +437,12 @@ transition:.4s;
 
 .btn:hover{
 
-background:#718f5a;
 
-transform:translateY(-6px);
+background:#78975b;
+
+
+transform:translateY(-5px);
+
 
 }
  /* 雷达 */
@@ -300,7 +453,7 @@ position:absolute;
 
 right:8%;
 
-top:170px;
+top:160px;
 
 width:260px;
 
@@ -308,11 +461,12 @@ height:260px;
 
 border-radius:50%;
 
-border:1px solid #00bfff66;
+border:1px solid #00c8ff88;
 
 overflow:hidden;
 
 }
+
 
 
 .radar::before{
@@ -321,25 +475,31 @@ content:"";
 
 position:absolute;
 
-width:100%;
+inset:0;
 
-height:100%;
 
 background:
 
 conic-gradient(
+
 transparent,
-#00bfff55,
+
+#00c8ff66,
+
 transparent
+
 );
 
-animation:rotate 4s linear infinite;
+
+animation:radarRotate 4s linear infinite;
+
 
 }
 
 
 
-@keyframes rotate{
+@keyframes radarRotate{
+
 
 from{
 
@@ -347,53 +507,39 @@ transform:rotate(0deg);
 
 }
 
+
 to{
 
 transform:rotate(360deg);
 
 }
 
-}
-
-
-
-.radar::after{
-
-content:"";
-
-position:absolute;
-
-left:50%;
-
-top:50%;
-
-width:10px;
-
-height:10px;
-
-background:#00bfff;
-
-border-radius:50%;
-
-transform:translate(-50%,-50%);
 
 }
+
 
 
 
 .radar span{
 
+
 position:absolute;
 
-left:50%;
 
 top:50%;
 
+
+left:50%;
+
+
 transform:translate(-50%,-50%);
 
-color:#00bfff;
+
+color:#00c8ff;
+
 
 font-size:14px;
+
 
 }
 
@@ -401,26 +547,36 @@ font-size:14px;
 
 
 
-/* 数据面板 */
+
+/* 数据状态 */
 
 
 .panel{
 
+
 position:absolute;
+
 
 left:8%;
 
-top:170px;
 
-width:270px;
+top:160px;
+
+
+width:280px;
+
 
 background:#101820dd;
 
-border:1px solid #304a63;
+
+border:1px solid #29435c;
+
+
+border-radius:12px;
+
 
 padding:25px;
 
-border-radius:12px;
 
 }
 
@@ -428,9 +584,12 @@ border-radius:12px;
 
 .panel h3{
 
-color:#00bfff;
+
+color:#00c8ff;
+
 
 margin-bottom:15px;
+
 
 }
 
@@ -438,11 +597,15 @@ margin-bottom:15px;
 
 .line{
 
+
 margin:12px 0;
+
 
 color:#ccc;
 
+
 font-size:14px;
+
 
 }
 
@@ -450,32 +613,45 @@ font-size:14px;
 
 .light{
 
+
 display:inline-block;
+
 
 width:8px;
 
+
 height:8px;
+
 
 border-radius:50%;
 
-background:#45ff75;
+
+background:#45ff70;
+
 
 margin-right:8px;
 
+
 animation:blink 1.5s infinite;
 
+
 }
+
 
 
 @keyframes blink{
 
+
 50%{
 
-opacity:.3;
+opacity:.2;
 
 }
 
+
 }
+
+
 
 
 
@@ -486,15 +662,21 @@ opacity:.3;
 
 .stats{
 
+
 display:flex;
+
 
 justify-content:center;
 
-gap:30px;
+
+gap:25px;
+
 
 flex-wrap:wrap;
 
+
 padding:40px 8%;
+
 
 }
 
@@ -502,15 +684,24 @@ padding:40px 8%;
 
 .stat{
 
+
+width:250px;
+
+
 background:#101820dd;
 
-border:1px solid #304a63;
+
+border:1px solid #29435c;
+
 
 border-radius:15px;
 
-padding:25px 45px;
+
+padding:30px;
+
 
 text-align:center;
+
 
 }
 
@@ -518,11 +709,15 @@ text-align:center;
 
 .number{
 
+
 font-size:42px;
 
-color:#00bfff;
+
+color:#00c8ff;
+
 
 font-weight:bold;
+
 
 }
 
@@ -530,9 +725,12 @@ font-weight:bold;
 
 .stat p{
 
-margin-top:10px;
 
 font-size:18px;
+
+
+margin-top:10px;
+
 
 }
 
@@ -540,11 +738,9 @@ font-size:18px;
 
 .stat small{
 
-display:block;
-
-margin-top:8px;
 
 color:#aaa;
+
 
 }
 
@@ -557,29 +753,46 @@ color:#aaa;
 
 .showcase{
 
+
 margin:40px 8%;
+
 
 padding:40px;
 
-min-height:230px;
+
+min-height:260px;
+
 
 border-radius:15px;
 
-border:1px solid #304a63;
+
+border:1px solid #29435c;
+
+
 
 background:
 
+
 linear-gradient(
+
 90deg,
-#101820dd,
-#10182066
+
+#101820ee,
+
+#10182077
+
 ),
+
 
 url("images/equipment.jpg");
 
+
+
 background-size:cover;
 
+
 background-position:center;
+
 
 }
 
@@ -587,11 +800,15 @@ background-position:center;
 
 .showcase h2{
 
-color:#d9c37a;
 
-font-size:35px;
+font-size:36px;
+
+
+color:#dfc56b;
+
 
 margin-bottom:25px;
+
 
 }
 
@@ -599,9 +816,15 @@ margin-bottom:25px;
 
 .item{
 
-margin:12px 0;
+
+margin:15px 0;
+
+
+font-size:18px;
+
 
 color:#ddd;
+
 
 }
 
@@ -609,9 +832,12 @@ color:#ddd;
 
 .item span{
 
-color:#00bfff;
+
+color:#00c8ff;
+
 
 font-weight:bold;
+
 
 }
 
@@ -619,20 +845,24 @@ font-weight:bold;
 
 
 
-/* 分类卡片 */
+
+/* 分类入口 */
 
 
 .cards{
 
+
 display:grid;
 
-grid-template-columns:
 
-repeat(auto-fit,minmax(240px,1fr));
+grid-template-columns:repeat(4,1fr);
+
 
 gap:25px;
 
+
 padding:50px 8%;
+
 
 }
 
@@ -640,15 +870,21 @@ padding:50px 8%;
 
 .card{
 
-background:#101820dd;
 
-border:1px solid #304a63;
+background:#101820ee;
 
-padding:35px;
+
+border:1px solid #29435c;
+
 
 border-radius:15px;
 
+
+padding:35px;
+
+
 transition:.4s;
+
 
 }
 
@@ -656,12 +892,12 @@ transition:.4s;
 
 .card:hover{
 
-transform:translateY(-12px);
 
-border-color:#00bfff;
+transform:translateY(-10px);
 
-box-shadow:
-0 10px 30px #000;
+
+border-color:#00c8ff;
+
 
 }
 
@@ -669,9 +905,12 @@ box-shadow:
 
 .card h2{
 
-color:#d9c37a;
+
+color:#dfc56b;
+
 
 margin-bottom:15px;
+
 
 }
 
@@ -679,12 +918,176 @@ margin-bottom:15px;
 
 .card p{
 
+
 color:#bbb;
+
 
 line-height:1.6;
 
+
 }
-</style>
+
+
+
+
+
+
+
+/* 手机适配 */
+
+
+@media(max-width:768px){
+
+
+
+header{
+
+height:70px;
+
+padding:0 5%;
+
+}
+
+
+.logo{
+
+font-size:22px;
+
+}
+
+
+.hero{
+
+height:60vh;
+
+}
+
+
+.hero h1{
+
+font-size:38px;
+
+letter-spacing:3px;
+
+}
+
+
+
+.hero p{
+
+font-size:16px;
+
+}
+
+
+
+.panel{
+
+position:relative;
+
+left:auto;
+
+top:auto;
+
+margin:20px;
+
+width:auto;
+
+}
+
+
+
+.radar{
+
+
+width:140px;
+
+height:140px;
+
+
+right:20px;
+
+
+top:100px;
+
+
+opacity:.45;
+
+
+}
+
+
+
+.stats{
+
+
+padding:20px;
+
+
+}
+
+
+
+.stat{
+
+
+width:100%;
+
+
+}
+
+
+
+.showcase{
+
+
+margin:20px;
+
+
+padding:25px;
+
+
+}
+
+
+
+.cards{
+
+
+grid-template-columns:1fr;
+
+
+padding:20px;
+
+
+}
+
+
+
+.card{
+
+
+padding:25px;
+
+
+}
+
+
+
+.map{
+
+
+width:300px;
+
+height:300px;
+
+
+}
+
+
+
+}
+ </style>
 
 </head>
 
@@ -694,22 +1097,31 @@ line-height:1.6;
 
 <div class="bg"></div>
 
+<div class="map"></div>
+
 <div class="grid"></div>
 
 <div class="scan"></div>
 
 
 
+
 <header>
 
+
 <div class="logo">
+
 CN ARMORY
+
 </div>
 
 
 <div class="status">
+
 ● SYSTEM <span>ONLINE</span>
+
 </div>
+
 
 </header>
 
@@ -717,33 +1129,50 @@ CN ARMORY
 
 
 
-<!-- 数据状态面板 -->
+
+
+<!-- 数据状态 -->
 
 <div class="panel">
+
 
 <h3>
 DATABASE STATUS
 </h3>
 
 
+
 <div class="line">
+
 <span class="light"></span>
+
 系统运行正常
+
 </div>
 
 
+
 <div class="line">
-数据库版本：CN-A01
+
+数据库编号：CN-A01
+
 </div>
 
 
+
 <div class="line">
+
 分类：
+
 航空 / 海军 / 导弹 / 航天
+
 </div>
 
 
+
 </div>
+
+
 
 
 
@@ -754,10 +1183,14 @@ DATABASE STATUS
 <div class="radar">
 
 <span>
+
 RADAR
+
 </span>
 
 </div>
+
+
 
 
 
@@ -771,24 +1204,35 @@ RADAR
 
 
 <h1>
+
 中国武器数据库
+
 </h1>
 
 
+
 <p>
+
 探索航空 · 海军 · 导弹 · 航天装备体系
+
 </p>
 
 
+
+
 <a href="equipment.html" class="btn">
+
 进入装备库
+
 </a>
+
 
 
 </div>
 
 
 </section>
+
 
 
 
@@ -799,41 +1243,66 @@ RADAR
 <section class="stats">
 
 
+
 <div class="stat">
+
 
 <div class="number" id="a">
+
 0
+
 </div>
+
 
 <p>
+
 装备领域
+
 </p>
 
+
 <small>
+
 航空 · 海军 · 导弹 · 航天
+
 </small>
 
+
 </div>
+
+
 
 
 
 
 
 <div class="stat">
+
 
 <div class="number" id="b">
+
 0
+
 </div>
+
 
 <p>
+
 收录装备
+
 </p>
 
+
 <small>
+
 持续更新数据库
+
 </small>
 
+
 </div>
+
+
 
 
 
@@ -841,22 +1310,34 @@ RADAR
 
 <div class="stat">
 
+
 <div class="number" id="c">
+
 0
+
 </div>
+
 
 <p>
+
 发展年代
+
 </p>
 
+
 <small>
+
 1950年至今
+
 </small>
 
+
 </div>
+
 
 
 </section>
+
 
 
 
@@ -868,32 +1349,44 @@ RADAR
 <section class="showcase">
 
 
+
 <h2>
+
 最新装备档案
+
 </h2>
 
 
+
+
 <div class="item">
 
 <span>
+
 歼-20：
+
 </span>
 
-第五代隐身战斗机
+隐身战斗机装备档案
 
 </div>
+
+
 
 
 
 <div class="item">
 
 <span>
+
 福建舰：
+
 </span>
 
-新一代航空母舰
+航空母舰装备档案
 
 </div>
+
 
 
 
@@ -901,12 +1394,15 @@ RADAR
 <div class="item">
 
 <span>
+
 东风系列：
+
 </span>
 
-战略导弹装备体系
+战略导弹装备档案
 
 </div>
+
 
 
 
@@ -923,30 +1419,46 @@ RADAR
 <section class="cards">
 
 
+
 <div class="card">
 
+
 <h2>
+
 ✈ 航空装备
+
 </h2>
 
+
 <p>
+
 战斗机、轰炸机、无人机等航空装备数据库。
+
 </p>
+
 
 </div>
 
 
 
 
+
 <div class="card">
 
+
 <h2>
+
 🚢 海军装备
+
 </h2>
 
+
 <p>
+
 航母、驱逐舰、潜艇等海上装备体系。
+
 </p>
+
 
 </div>
 
@@ -956,13 +1468,20 @@ RADAR
 
 <div class="card">
 
+
 <h2>
+
 🚀 导弹系统
+
 </h2>
 
+
 <p>
-弹道、巡航、反舰、高超音速导弹数据库。
+
+弹道、巡航、反舰、高超音速装备数据库。
+
 </p>
+
 
 </div>
 
@@ -972,13 +1491,20 @@ RADAR
 
 <div class="card">
 
+
 <h2>
+
 🛰 航天装备
+
 </h2>
 
+
 <p>
-火箭、卫星与空间技术资料库。
+
+火箭、卫星、空间技术资料库。
+
 </p>
+
 
 </div>
 
@@ -992,13 +1518,16 @@ RADAR
 
 
 
+
 <script>
+
 
 
 function count(id,target){
 
 
 let num=0;
+
 
 
 let timer=setInterval(()=>{
@@ -1013,12 +1542,15 @@ document.getElementById(id).innerHTML=num;
 
 if(num>=target){
 
+
 clearInterval(timer);
+
 
 }
 
 
 },40);
+
 
 
 }
@@ -1027,7 +1559,9 @@ clearInterval(timer);
 
 count("a",4);
 
+
 count("b",120);
+
 
 count("c",70);
 
@@ -1039,4 +1573,5 @@ count("c",70);
 
 </body>
 
-</html>  
+
+</html>
