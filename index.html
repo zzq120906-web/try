@@ -6,7 +6,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>CN ARMORY - 中国武器数据库</title>
+<title>CN ARMORY 中国武器数据库</title>
+
 
 <style>
 
@@ -27,7 +28,8 @@ overflow-x:hidden;
 }
 
 
-/* 背景光效 */
+
+/* 背景光 */
 
 body::before{
 
@@ -35,21 +37,24 @@ content:"";
 
 position:fixed;
 
-width:500px;
-height:500px;
+width:600px;
+height:600px;
 
-background:#0077ff;
+background:#0066ff;
 
 filter:blur(180px);
 
 opacity:.25;
 
-top:-200px;
+top:-250px;
 left:50%;
 
 transform:translateX(-50%);
 
+z-index:-1;
+
 }
+
 
 
 /* 导航 */
@@ -60,19 +65,18 @@ height:75px;
 
 display:flex;
 
-justify-content:space-between;
-
 align-items:center;
+
+justify-content:space-between;
 
 padding:0 8%;
 
-background:#07101fdd;
+background:#07101fcc;
 
-backdrop-filter:blur(10px);
-
-border-bottom:1px solid #1c3555;
+border-bottom:1px solid #203452;
 
 }
+
 
 
 .logo{
@@ -83,36 +87,26 @@ font-weight:bold;
 
 color:#00d9ff;
 
-letter-spacing:2px;
-
 }
 
 
 
 .menu span{
 
-margin-left:30px;
+margin-left:25px;
 
 color:#aaa;
 
-cursor:pointer;
-
-}
-
-
-.menu span:hover{
-
-color:#00d9ff;
-
 }
 
 
 
-/* 首页 */
+/* 主页面 */
+
 
 .hero{
 
-height:85vh;
+height:80vh;
 
 display:flex;
 
@@ -128,17 +122,17 @@ position:relative;
 
 
 
+
 .hero h1{
 
-font-size:72px;
+font-size:65px;
 
-letter-spacing:5px;
+letter-spacing:4px;
 
 background:linear-gradient(
 90deg,
-#00eaff,
-#ffffff,
-#3b82f6
+#00d9ff,
+white
 );
 
 -webkit-background-clip:text;
@@ -151,50 +145,65 @@ color:transparent;
 
 .hero p{
 
-font-size:22px;
+margin:25px 0;
 
-color:#9ca3af;
+font-size:20px;
 
-margin:30px 0;
+color:#aaa;
 
 }
 
 
 
+/* 真正按钮 */
+
 .btn{
+
 
 display:inline-block;
 
-padding:16px 50px;
-
-border-radius:40px;
+padding:16px 45px;
 
 background:#00d9ff;
 
 color:#001018;
 
+border-radius:40px;
+
+text-decoration:none;
+
 font-weight:bold;
 
-cursor:pointer;
+
+position:relative;
+
+z-index:10;
+
 
 transition:.3s;
+
 
 }
 
 
 .btn:hover{
 
-box-shadow:0 0 30px #00d9ff;
 
-transform:scale(1.05);
+transform:scale(1.08);
+
+box-shadow:
+0 0 30px #00d9ff;
+
 
 }
 
 
 
-/* 扫描圆 */
+/* 圆形科技动画 */
 
-.radar{
+
+.circle{
+
 
 position:absolute;
 
@@ -204,14 +213,21 @@ height:350px;
 
 border-radius:50%;
 
-border:1px solid #00d9ff33;
 
-animation:scan 4s infinite linear;
+border:1px solid #00d9ff55;
+
+
+animation:rotate 8s linear infinite;
+
+
+z-index:0;
+
 
 }
 
 
-@keyframes scan{
+@keyframes rotate{
+
 
 from{
 
@@ -229,21 +245,12 @@ transform:rotate(360deg);
 
 
 
-/* 分类 */
 
-.section{
+.content{
+
 
 padding:60px 8%;
 
-}
-
-
-
-.title{
-
-font-size:35px;
-
-margin-bottom:30px;
 
 }
 
@@ -251,11 +258,15 @@ margin-bottom:30px;
 
 .cards{
 
+
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+
 
 gap:25px;
+
 
 }
 
@@ -263,21 +274,21 @@ gap:25px;
 
 .card{
 
-background:
 
-linear-gradient(
-145deg,
-#101b33,
-#08101f
-);
+background:#101b33;
 
-padding:35px;
-
-border-radius:20px;
 
 border:1px solid #203452;
 
+
+border-radius:20px;
+
+
+padding:30px;
+
+
 transition:.3s;
+
 
 }
 
@@ -285,12 +296,12 @@ transition:.3s;
 
 .card:hover{
 
-transform:translateY(-12px);
+
+transform:translateY(-10px);
+
 
 border-color:#00d9ff;
 
-box-shadow:
-0 0 30px #00d9ff33;
 
 }
 
@@ -298,9 +309,11 @@ box-shadow:
 
 .card h2{
 
+
 color:#00d9ff;
 
 margin-bottom:15px;
+
 
 }
 
@@ -308,55 +321,21 @@ margin-bottom:15px;
 
 .card p{
 
-color:#9ca3af;
-
-line-height:1.7;
-
-}
-
-
-
-/* 数据 */
-
-.stats{
-
-display:flex;
-
-justify-content:center;
-
-gap:80px;
-
-padding:70px 0;
-
-}
-
-
-
-.num{
-
-font-size:45px;
-
-color:#00d9ff;
-
-text-align:center;
-
-}
-
-
-
-.stats p{
 
 color:#aaa;
 
+
 }
+
 
 
 
 @media(max-width:700px){
 
+
 .hero h1{
 
-font-size:42px;
+font-size:40px;
 
 }
 
@@ -368,16 +347,12 @@ display:none;
 }
 
 
-.stats{
-
-gap:30px;
-
 }
 
-}
 
 
 </style>
+
 
 </head>
 
@@ -386,6 +361,7 @@ gap:30px;
 
 
 <nav>
+
 
 <div class="logo">
 CN ARMORY
@@ -400,7 +376,6 @@ CN ARMORY
 
 <span>科技树</span>
 
-<span>关于</span>
 
 </div>
 
@@ -409,13 +384,17 @@ CN ARMORY
 
 
 
+
+
 <section class="hero">
 
 
-<div class="radar"></div>
+<div class="circle"></div>
 
 
-<div>
+
+<div style="position:relative;z-index:5;">
+
 
 <h1>
 中国武器数据库
@@ -427,9 +406,13 @@ CN ARMORY
 </p>
 
 
+
 <a href="equipment.html" class="btn">
+
 进入装备库
+
 </a>
+
 
 
 </div>
@@ -439,12 +422,18 @@ CN ARMORY
 
 
 
-<section class="section">
 
 
-<div class="title">
+<section class="content">
+
+
+<h1>
 装备领域
-</div>
+</h1>
+
+
+<br>
+
 
 
 <div class="cards">
@@ -452,10 +441,12 @@ CN ARMORY
 
 <div class="card">
 
-<h2>✈ 航空装备</h2>
+<h2>
+✈ 航空装备
+</h2>
 
 <p>
-战斗机、轰炸机、运输机、无人机体系。
+战斗机、轰炸机、运输机、无人机
 </p>
 
 </div>
@@ -464,85 +455,35 @@ CN ARMORY
 
 <div class="card">
 
-<h2>🚢 海军装备</h2>
+<h2>
+🚢 海军装备
+</h2>
 
 <p>
-航母、驱逐舰、潜艇与舰载武器。
+航母、驱逐舰、潜艇
 </p>
 
 </div>
+
 
 
 
 <div class="card">
 
-<h2>🚀 导弹系统</h2>
+<h2>
+🚀 导弹系统
+</h2>
 
 <p>
-弹道、巡航、反舰、高超音速武器。
+弹道、巡航、反舰、高超音速
 </p>
 
 </div>
 
 
 
-<div class="card">
-
-<h2>🛰 航天科技</h2>
-
-<p>
-卫星、空间探索与未来技术。
-</p>
-
 </div>
 
-
-</div>
-
-
-</section>
-
-
-
-<section class="stats">
-
-<div>
-
-<div class="num">
-500+
-</div>
-
-<p>
-装备资料
-</p>
-
-</div>
-
-
-<div>
-
-<div class="num">
-70+
-</div>
-
-<p>
-发展年份
-</p>
-
-</div>
-
-
-<div>
-
-<div class="num">
-∞
-</div>
-
-<p>
-未来扩展
-</p>
-
-</div>
 
 
 </section>
