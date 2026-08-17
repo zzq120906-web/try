@@ -1,145 +1,197 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NOVA DATABASE</title>
+<title>中国武器数据库</title>
+
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:"Microsoft YaHei",sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Microsoft YaHei";
 }
+
 
 body{
-    background:#050816;
-    color:white;
+
+background:#050914;
+color:white;
+
 }
 
-/* 顶部导航 */
+
+/*导航*/
+
 nav{
-    height:70px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:0 8%;
-    background:#081020;
+
+height:70px;
+background:#081222;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:0 8%;
+
 }
+
 
 .logo{
-    font-size:28px;
-    color:#00eaff;
-    font-weight:bold;
+
+font-size:28px;
+color:#00d9ff;
+font-weight:bold;
+
 }
+
 
 nav span{
-    color:#aaa;
-    margin-left:25px;
+
+margin-left:25px;
+color:#aaa;
+
 }
 
 
-/* 首页 */
+
+/*首页*/
+
 .hero{
-    height:80vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    background:
-    radial-gradient(circle,#0066ff55,transparent 40%);
+
+height:75vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+text-align:center;
+
+background:
+radial-gradient(circle,#005eff55,transparent 40%);
+
 }
 
 
-h1{
-    font-size:70px;
-    background:linear-gradient(90deg,#00eaff,#7b5cff);
-    color:transparent;
-    -webkit-background-clip:text;
+.hero h1{
+
+font-size:65px;
+
+background:linear-gradient(90deg,#00d9ff,#ffffff);
+
+-webkit-background-clip:text;
+
+color:transparent;
+
 }
+
 
 
 .hero p{
-    margin:30px;
-    font-size:20px;
-    color:#bbb;
+
+margin:25px;
+
+font-size:20px;
+
+color:#aaa;
+
 }
 
 
 button{
-    padding:15px 40px;
-    border:none;
-    border-radius:30px;
-    background:#00eaff;
-    font-size:18px;
-    cursor:pointer;
+
+padding:15px 40px;
+
+border:0;
+
+border-radius:30px;
+
+background:#00d9ff;
+
+font-size:18px;
+
 }
 
 
-/* 卡片 */
+
+/*分类*/
 
 .section{
-    padding:50px 8%;
+
+padding:50px 8%;
+
 }
 
 
 .cards{
-    display:flex;
-    gap:25px;
-    flex-wrap:wrap;
+
+display:flex;
+
+gap:25px;
+
+flex-wrap:wrap;
+
 }
 
 
 .card{
-    flex:1;
-    min-width:250px;
-    background:#111b33;
-    padding:30px;
-    border-radius:20px;
-    border:1px solid #23365c;
-    transition:.3s;
+
+background:#101b33;
+
+border:1px solid #263a60;
+
+border-radius:20px;
+
+padding:30px;
+
+flex:1;
+
+min-width:250px;
+
+transition:.3s;
+
 }
 
 
 .card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 0 30px #00eaff66;
+
+transform:translateY(-10px);
+
+box-shadow:0 0 25px #00d9ff55;
+
 }
+
 
 
 .card h2{
-    color:#00eaff;
-    margin-bottom:15px;
+
+color:#00d9ff;
+
+margin-bottom:15px;
+
 }
+
 
 
 .card p{
-    color:#aaa;
+
+color:#aaa;
+
 }
 
-
-
-/* 数据 */
-
-.data{
-    display:flex;
-    justify-content:center;
-    gap:80px;
-    padding:50px;
-}
-
-
-.num{
-    font-size:45px;
-    color:#00eaff;
-}
 
 
 </style>
 
+
 </head>
+
 
 
 <body>
@@ -148,13 +200,16 @@ button{
 <nav>
 
 <div class="logo">
-NOVA
+CN ARMORY
 </div>
 
+
 <div>
+
 <span>首页</span>
-<span>数据库</span>
-<span>项目</span>
+<span>装备库</span>
+<span>科技树</span>
+
 </div>
 
 </nav>
@@ -163,21 +218,26 @@ NOVA
 
 <section class="hero">
 
+
 <div>
 
 <h1>
-未来科技数据库
+中国武器数据库
 </h1>
 
+
 <p>
-探索 AI · 航天 · 能源 · 未知科技
+探索中国航空 · 海军 · 导弹 · 航天装备
 </p>
 
+
 <button>
-进入数据库
+进入装备库
 </button>
 
+
 </div>
+
 
 </section>
 
@@ -185,63 +245,81 @@ NOVA
 
 <section class="section">
 
-<h2>
-核心领域
-</h2>
+
+<h1>
+装备分类
+</h1>
+
 
 <br>
+
 
 
 <div class="cards">
 
 
-<div class="card">
-<h2>🤖 人工智能</h2>
-<p>
-下一代智能系统，改变未来世界。
-</p>
-</div>
-
 
 <div class="card">
-<h2>🚀 航天探索</h2>
+
+<h2>✈️ 航空装备</h2>
+
 <p>
-探索深空，寻找未知文明。
+战斗机、轰炸机、运输机、无人机等航空系统。
 </p>
+
 </div>
+
 
 
 <div class="card">
-<h2>⚡ 新能源</h2>
+
+<h2>🚢 海军装备</h2>
+
 <p>
-构建未来能源体系。
+航空母舰、驱逐舰、潜艇及舰载武器。
 </p>
-</div>
-
 
 </div>
 
-</section>
 
 
 
-<section class="data">
+<div class="card">
 
-<div>
-<div class="num">128</div>
-项目
+<h2>🚀 导弹系统</h2>
+
+<p>
+弹道导弹、巡航导弹、高超音速武器。
+</p>
+
 </div>
 
 
-<div>
-<div class="num">42</div>
-团队
+
+
+<div class="card">
+
+<h2>🛰️ 航天科技</h2>
+
+<p>
+卫星、空间探索与相关技术。
+</p>
+
 </div>
 
 
-<div>
-<div class="num">99%</div>
-完成
+
+<div class="card">
+
+<h2>🛡️ 防空系统</h2>
+
+<p>
+雷达、防空导弹、拦截系统。
+</p>
+
+</div>
+
+
 </div>
 
 
@@ -249,4 +327,5 @@ NOVA
 
 
 </body>
+
 </html>
