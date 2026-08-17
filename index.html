@@ -12,19 +12,11 @@
 
 <style>
 
-
 *{
-
 margin:0;
-
 padding:0;
-
 box-sizing:border-box;
-
-font-family:"Microsoft YaHei",Arial,sans-serif;
-
 }
-
 
 
 body{
@@ -33,13 +25,15 @@ background:#070b10;
 
 color:white;
 
+font-family:"Microsoft YaHei",Arial,sans-serif;
+
 overflow-x:hidden;
 
 }
 
 
 
-/* 动态背景 */
+/* 背景 */
 
 .bg{
 
@@ -53,8 +47,8 @@ z-index:-5;
 background:
 
 linear-gradient(
-rgba(0,0,0,.55),
-rgba(0,0,0,.85)
+rgba(0,0,0,.6),
+rgba(0,0,0,.9)
 ),
 
 url("images/background.jpg");
@@ -71,9 +65,7 @@ animation:bgMove 25s infinite alternate;
 
 
 
-
 @keyframes bgMove{
-
 
 from{
 
@@ -81,62 +73,27 @@ transform:scale(1);
 
 }
 
-
 to{
 
-transform:scale(1.1);
+transform:scale(1.08);
 
 }
-
-
-}
-
-
-
-
-/* 地图和网格背景 */
-
-
-.map{
-
-position:fixed;
-
-right:-100px;
-
-top:150px;
-
-width:600px;
-
-height:600px;
-
-opacity:.08;
-
-z-index:-3;
-
-
-background:
-
-url("images/china-map.png");
-
-
-background-size:contain;
-
-background-repeat:no-repeat;
-
 
 }
 
 
 
+
+
+/* 动态网格 */
 
 .grid{
-
 
 position:fixed;
 
 inset:0;
 
-z-index:-2;
+z-index:-3;
 
 
 background-image:
@@ -155,15 +112,12 @@ transparent 1px
 );
 
 
-
 background-size:60px 60px;
 
 
 animation:gridMove 15s linear infinite;
 
-
 }
-
 
 
 
@@ -190,13 +144,16 @@ background-position:60px 60px;
 
 
 
+
+
 /* 扫描线 */
 
 
 .scan{
 
-
 position:fixed;
+
+left:0;
 
 width:100%;
 
@@ -204,12 +161,9 @@ height:2px;
 
 background:#00c8ff;
 
-
 opacity:.35;
 
-
 animation:scanMove 6s infinite;
-
 
 }
 
@@ -244,24 +198,19 @@ top:100%;
 
 header{
 
-
-height:85px;
-
-
-display:flex;
-
-
-align-items:center;
-
-
-justify-content:space-between;
-
+height:80px;
 
 padding:0 8%;
 
 
-background:#090e14dd;
+display:flex;
 
+align-items:center;
+
+justify-content:space-between;
+
+
+background:#091018dd;
 
 border-bottom:1px solid #29435c;
 
@@ -272,17 +221,13 @@ border-bottom:1px solid #29435c;
 
 .logo{
 
-
 font-size:32px;
-
 
 font-weight:bold;
 
-
 letter-spacing:3px;
 
-
-color:#dfc56b;
+color:#e0c86a;
 
 
 }
@@ -291,12 +236,9 @@ color:#dfc56b;
 
 .status{
 
-
-color:#aaa;
-
-
 font-size:14px;
 
+color:#aaa;
 
 }
 
@@ -304,9 +246,7 @@ font-size:14px;
 
 .status span{
 
-
-color:#43ff70;
-
+color:#4cff70;
 
 }
 
@@ -321,26 +261,22 @@ color:#43ff70;
 .hero{
 
 
-height:70vh;
+min-height:70vh;
 
 
 display:flex;
 
-
 justify-content:center;
 
-
 align-items:center;
-
 
 text-align:center;
 
 
-padding:20px;
+padding:30px;
 
 
 }
-
 
 
 
@@ -366,21 +302,16 @@ animation:titleIn 2s;
 
 from{
 
-
 opacity:0;
 
-
 transform:translateY(40px);
-
 
 }
 
 
 to{
 
-
 opacity:1;
-
 
 }
 
@@ -407,7 +338,6 @@ margin:30px 0;
 
 
 
-
 .btn{
 
 
@@ -428,6 +358,7 @@ color:white;
 
 text-decoration:none;
 
+
 transition:.4s;
 
 
@@ -438,32 +369,93 @@ transition:.4s;
 .btn:hover{
 
 
-background:#78975b;
+background:#79985b;
 
 
 transform:translateY(-5px);
 
 
 }
- /* 雷达 */
+ /* 中国地图 */
+
+.china-map{
+
+position:fixed;
+
+right:-120px;
+
+top:120px;
+
+width:600px;
+
+opacity:.12;
+
+z-index:-2;
+
+
+filter:
+
+drop-shadow(0 0 20px #00c8ff);
+
+
+animation:mapGlow 5s infinite alternate;
+
+}
+
+
+@keyframes mapGlow{
+
+
+from{
+
+opacity:.08;
+
+}
+
+
+to{
+
+opacity:.18;
+
+}
+
+
+}
+
+
+
+
+
+
+/* 雷达 */
+
 
 .radar{
 
+
 position:absolute;
 
-right:8%;
 
-top:160px;
+right:10%;
+
+
+top:170px;
+
 
 width:260px;
 
+
 height:260px;
+
 
 border-radius:50%;
 
+
 border:1px solid #00c8ff88;
 
+
 overflow:hidden;
+
 
 }
 
@@ -471,20 +463,24 @@ overflow:hidden;
 
 .radar::before{
 
+
 content:"";
 
+
 position:absolute;
+
 
 inset:0;
 
 
 background:
 
+
 conic-gradient(
 
 transparent,
 
-#00c8ff66,
+#00c8ff88,
 
 transparent
 
@@ -519,7 +515,6 @@ transform:rotate(360deg);
 
 
 
-
 .radar span{
 
 
@@ -538,9 +533,6 @@ transform:translate(-50%,-50%);
 color:#00c8ff;
 
 
-font-size:14px;
-
-
 }
 
 
@@ -548,7 +540,8 @@ font-size:14px;
 
 
 
-/* 数据状态 */
+
+/* 数据面板 */
 
 
 .panel{
@@ -560,22 +553,22 @@ position:absolute;
 left:8%;
 
 
-top:160px;
+top:170px;
 
 
 width:280px;
 
 
-background:#101820dd;
+padding:25px;
+
+
+background:#101820ee;
 
 
 border:1px solid #29435c;
 
 
-border-radius:12px;
-
-
-padding:25px;
+border-radius:15px;
 
 
 }
@@ -623,10 +616,10 @@ width:8px;
 height:8px;
 
 
+background:#48ff70;
+
+
 border-radius:50%;
-
-
-background:#45ff70;
 
 
 margin-right:8px;
@@ -657,7 +650,8 @@ opacity:.2;
 
 
 
-/* 数据统计 */
+
+/* 统计 */
 
 
 .stats{
@@ -688,19 +682,19 @@ padding:40px 8%;
 width:250px;
 
 
-background:#101820dd;
+padding:30px;
+
+
+text-align:center;
+
+
+background:#101820ee;
 
 
 border:1px solid #29435c;
 
 
 border-radius:15px;
-
-
-padding:30px;
-
-
-text-align:center;
 
 
 }
@@ -713,10 +707,10 @@ text-align:center;
 font-size:42px;
 
 
-color:#00c8ff;
-
-
 font-weight:bold;
+
+
+color:#00c8ff;
 
 
 }
@@ -748,6 +742,8 @@ color:#aaa;
 
 
 
+
+
 /* 最新装备 */
 
 
@@ -760,38 +756,13 @@ margin:40px 8%;
 padding:40px;
 
 
-min-height:260px;
-
-
 border-radius:15px;
 
 
 border:1px solid #29435c;
 
 
-
-background:
-
-
-linear-gradient(
-
-90deg,
-
-#101820ee,
-
-#10182077
-
-),
-
-
-url("images/equipment.jpg");
-
-
-
-background-size:cover;
-
-
-background-position:center;
+background:#101820dd;
 
 
 }
@@ -801,10 +772,10 @@ background-position:center;
 .showcase h2{
 
 
-font-size:36px;
+font-size:35px;
 
 
-color:#dfc56b;
+color:#e0c86a;
 
 
 margin-bottom:25px;
@@ -818,9 +789,6 @@ margin-bottom:25px;
 
 
 margin:15px 0;
-
-
-font-size:18px;
 
 
 color:#ddd;
@@ -845,8 +813,7 @@ font-weight:bold;
 
 
 
-
-/* 分类入口 */
+/* 分类 */
 
 
 .cards{
@@ -871,6 +838,9 @@ padding:50px 8%;
 .card{
 
 
+padding:35px;
+
+
 background:#101820ee;
 
 
@@ -878,9 +848,6 @@ border:1px solid #29435c;
 
 
 border-radius:15px;
-
-
-padding:35px;
 
 
 transition:.4s;
@@ -906,7 +873,7 @@ border-color:#00c8ff;
 .card h2{
 
 
-color:#dfc56b;
+color:#e0c86a;
 
 
 margin-bottom:15px;
@@ -926,6 +893,72 @@ line-height:1.6;
 
 
 }
+ </style>
+
+</head>
+
+
+<body>
+
+
+<div class="bg"></div>
+
+<div class="grid"></div>
+
+<div class="scan"></div>
+
+
+
+<!-- 中国地图 SVG -->
+
+<svg class="china-map"
+viewBox="0 0 800 600">
+
+<path d="
+M120 200
+L180 160
+L260 130
+L340 150
+L420 120
+L520 160
+L650 210
+L690 300
+L620 360
+L540 390
+L450 470
+L330 430
+L250 390
+L160 350
+Z"
+fill="none"
+stroke="#00c8ff"
+stroke-width="4"/>
+
+
+</svg>
+
+
+
+
+
+<header>
+
+
+<div class="logo">
+
+CN ARMORY
+
+</div>
+
+
+<div class="status">
+
+● SYSTEM <span>ONLINE</span>
+
+</div>
+
+
+</header>
 
 
 
@@ -933,20 +966,316 @@ line-height:1.6;
 
 
 
-/* 手机适配 */
+<div class="panel">
+
+
+<h3>
+DATABASE STATUS
+</h3>
+
+
+<div class="line">
+
+<span class="light"></span>
+
+系统运行正常
+
+</div>
+
+
+<div class="line">
+
+数据库编号：CN-A01
+
+</div>
+
+
+<div class="line">
+
+航空 / 海军 / 导弹 / 航天
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="radar">
+
+<span>
+RADAR
+</span>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<section class="hero">
+
+
+<div>
+
+
+<h1>
+中国武器数据库
+</h1>
+
+
+<p>
+探索航空 · 海军 · 导弹 · 航天装备体系
+</p>
+
+
+<a href="equipment.html" class="btn">
+
+进入装备库
+
+</a>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section class="stats">
+
+
+<div class="stat">
+
+
+<div class="number" id="a">
+0
+</div>
+
+
+<p>
+装备领域
+</p>
+
+
+<small>
+航空 · 海军 · 导弹 · 航天
+</small>
+
+
+</div>
+
+
+
+
+
+<div class="stat">
+
+
+<div class="number" id="b">
+0
+</div>
+
+
+<p>
+收录装备
+</p>
+
+
+<small>
+持续更新数据库
+</small>
+
+
+</div>
+
+
+
+
+
+<div class="stat">
+
+
+<div class="number" id="c">
+0
+</div>
+
+
+<p>
+发展年代
+</p>
+
+
+<small>
+1950年至今
+</small>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<section class="showcase">
+
+
+<h2>
+最新装备档案
+</h2>
+
+
+
+<div class="item">
+
+<span>
+歼-20：
+</span>
+
+第五代隐身战斗机
+
+</div>
+
+
+
+<div class="item">
+
+<span>
+福建舰：
+</span>
+
+航空母舰装备档案
+
+</div>
+
+
+
+<div class="item">
+
+<span>
+东风系列：
+</span>
+
+战略导弹装备体系
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section class="cards">
+
+
+<div class="card">
+
+<h2>
+✈ 航空装备
+</h2>
+
+<p>
+战斗机、轰炸机、无人机数据库
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>
+🚢 海军装备
+</h2>
+
+<p>
+航母、驱逐舰、潜艇数据库
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>
+🚀 导弹系统
+</h2>
+
+<p>
+弹道、巡航、高超音速装备数据库
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>
+🛰 航天装备
+</h2>
+
+<p>
+火箭、卫星、空间技术资料库
+</p>
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+<style>
 
 
 @media(max-width:768px){
 
 
-
 header{
 
-height:70px;
-
-padding:0 5%;
+padding:0 20px;
 
 }
+
 
 
 .logo{
@@ -956,16 +1285,18 @@ font-size:22px;
 }
 
 
+
 .hero{
 
-height:60vh;
+min-height:55vh;
 
 }
 
 
+
 .hero h1{
 
-font-size:38px;
+font-size:36px;
 
 letter-spacing:3px;
 
@@ -983,15 +1314,21 @@ font-size:16px;
 
 .panel{
 
+
 position:relative;
+
 
 left:auto;
 
+
 top:auto;
+
 
 margin:20px;
 
+
 width:auto;
+
 
 }
 
@@ -1000,21 +1337,39 @@ width:auto;
 .radar{
 
 
-width:140px;
-
-height:140px;
+position:relative;
 
 
-right:20px;
+right:auto;
 
 
-top:100px;
+top:auto;
 
 
-opacity:.45;
+margin:30px auto;
 
 
 }
+
+
+
+.china-map{
+
+
+width:350px;
+
+
+right:-80px;
+
+
+top:200px;
+
+
+opacity:.08;
+
+
+}
+
 
 
 
@@ -1030,9 +1385,7 @@ padding:20px;
 
 .stat{
 
-
 width:100%;
-
 
 }
 
@@ -1063,455 +1416,11 @@ padding:20px;
 }
 
 
-
-.card{
-
-
-padding:25px;
-
-
 }
 
 
 
-.map{
-
-
-width:300px;
-
-height:300px;
-
-
-}
-
-
-
-}
- </style>
-
-</head>
-
-
-<body>
-
-
-<div class="bg"></div>
-
-<div class="map"></div>
-
-<div class="grid"></div>
-
-<div class="scan"></div>
-
-
-
-
-<header>
-
-
-<div class="logo">
-
-CN ARMORY
-
-</div>
-
-
-<div class="status">
-
-● SYSTEM <span>ONLINE</span>
-
-</div>
-
-
-</header>
-
-
-
-
-
-
-
-<!-- 数据状态 -->
-
-<div class="panel">
-
-
-<h3>
-DATABASE STATUS
-</h3>
-
-
-
-<div class="line">
-
-<span class="light"></span>
-
-系统运行正常
-
-</div>
-
-
-
-<div class="line">
-
-数据库编号：CN-A01
-
-</div>
-
-
-
-<div class="line">
-
-分类：
-
-航空 / 海军 / 导弹 / 航天
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-<!-- 雷达 -->
-
-<div class="radar">
-
-<span>
-
-RADAR
-
-</span>
-
-</div>
-
-
-
-
-
-
-
-
-<section class="hero">
-
-
-<div>
-
-
-<h1>
-
-中国武器数据库
-
-</h1>
-
-
-
-<p>
-
-探索航空 · 海军 · 导弹 · 航天装备体系
-
-</p>
-
-
-
-
-<a href="equipment.html" class="btn">
-
-进入装备库
-
-</a>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-<section class="stats">
-
-
-
-<div class="stat">
-
-
-<div class="number" id="a">
-
-0
-
-</div>
-
-
-<p>
-
-装备领域
-
-</p>
-
-
-<small>
-
-航空 · 海军 · 导弹 · 航天
-
-</small>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="stat">
-
-
-<div class="number" id="b">
-
-0
-
-</div>
-
-
-<p>
-
-收录装备
-
-</p>
-
-
-<small>
-
-持续更新数据库
-
-</small>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="stat">
-
-
-<div class="number" id="c">
-
-0
-
-</div>
-
-
-<p>
-
-发展年代
-
-</p>
-
-
-<small>
-
-1950年至今
-
-</small>
-
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<section class="showcase">
-
-
-
-<h2>
-
-最新装备档案
-
-</h2>
-
-
-
-
-<div class="item">
-
-<span>
-
-歼-20：
-
-</span>
-
-隐身战斗机装备档案
-
-</div>
-
-
-
-
-
-<div class="item">
-
-<span>
-
-福建舰：
-
-</span>
-
-航空母舰装备档案
-
-</div>
-
-
-
-
-
-<div class="item">
-
-<span>
-
-东风系列：
-
-</span>
-
-战略导弹装备档案
-
-</div>
-
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<section class="cards">
-
-
-
-<div class="card">
-
-
-<h2>
-
-✈ 航空装备
-
-</h2>
-
-
-<p>
-
-战斗机、轰炸机、无人机等航空装备数据库。
-
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="card">
-
-
-<h2>
-
-🚢 海军装备
-
-</h2>
-
-
-<p>
-
-航母、驱逐舰、潜艇等海上装备体系。
-
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="card">
-
-
-<h2>
-
-🚀 导弹系统
-
-</h2>
-
-
-<p>
-
-弹道、巡航、反舰、高超音速装备数据库。
-
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="card">
-
-
-<h2>
-
-🛰 航天装备
-
-</h2>
-
-
-<p>
-
-火箭、卫星、空间技术资料库。
-
-</p>
-
-
-</div>
-
-
-
-</section>
-
+</style>
 
 
 
@@ -1526,31 +1435,26 @@ RADAR
 function count(id,target){
 
 
-let num=0;
+let n=0;
 
 
-
-let timer=setInterval(()=>{
-
-
-num++;
+let t=setInterval(()=>{
 
 
-document.getElementById(id).innerHTML=num;
+n++;
 
 
+document.getElementById(id).innerHTML=n;
 
-if(num>=target){
 
+if(n>=target){
 
-clearInterval(timer);
-
+clearInterval(t);
 
 }
 
 
 },40);
-
 
 
 }
@@ -1559,9 +1463,7 @@ clearInterval(timer);
 
 count("a",4);
 
-
 count("b",120);
-
 
 count("c",70);
 
@@ -1572,6 +1474,5 @@ count("c",70);
 
 
 </body>
-
 
 </html>
